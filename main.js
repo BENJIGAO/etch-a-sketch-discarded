@@ -1,3 +1,15 @@
+let isMouseDown = 0;
+
+monitorMouseStatus();
+createGrid(100);
+makeGridResponsive();
+
+function monitorMouseStatus() {
+    const body = document.body;
+    body.addEventListener('mousedown', () => isMouseDown++)
+    body.addEventListener('mouseup', () => isMouseDown--)
+}
+
 function createGrid(sideLength) {
     const gridContainer = document.getElementById('grid-container');
     let sideMeasure = '1fr '.repeat(sideLength);
@@ -11,28 +23,16 @@ function createGrid(sideLength) {
 }
 
 function addBlack(e) {
-    e.target.classList.add('black');
+    if (isMouseDown) {
+        e.target.classList.add('black');
+    }
 }
 
-function addEventListeners() {
-    const body = document.body;
-    
-    body.addEventListener('mousedown', () => {
-        const gridSquares = document.querySelectorAll('.grid-square');
-        gridSquares.forEach((gridSquare) => {
-            gridSquare.addEventListener('mouseenter', addBlack);
-        })
-    })
-    body.addEventListener('mouseup', () => {
-        const gridSquares = document.querySelectorAll('.grid-square');
-        gridSquares.forEach((gridSquare) => {
-            gridSquare.removeEventListener('mouseenter', addBlack)
-        })
+function makeGridResponsive() {
+    const gridSquares = document.querySelectorAll('.grid-square');
+    gridSquares.forEach((gridSquare) => {
+        gridSquare.addEventListener('mouseenter', addBlack);
     })
 }
 
-
-addEventListeners();
-
-createGrid(16);
 
