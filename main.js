@@ -1,7 +1,7 @@
 let isMouseDown = 0;
 
 monitorMouseStatus();
-createGrid(100);
+createGrid(10);
 makeGridResponsive();
 activateBtns();
 
