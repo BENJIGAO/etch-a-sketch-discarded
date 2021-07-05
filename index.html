@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/main.css">
+    
 </head>
-<body ondragstart="return false;">
+<body ondragstart="return false;"> <!--Disables drag-->
     <div id="main-container">
-        <div id="grid-container">
+        <h1>Etch-a-Sketch</h1>
+        <div id="main-content">
+            <div id="toolbar">
+                <div id="clear-btn-container">
+                    <button id="clear-btn">Clear</button>
+                </div>
+                <div id="slider-container">
+                    <label for="grid-size-slider">Grid Size:</label>
+                    <input type="range" min=3 max=100 value=10 id="grid-size-slider">
+                </div>
+                
+            </div>
+            <div id="grid-container">
+            </div>
+
         </div>
+        <footer></footer>
+        
     </div>
     
     <script src="main.js"></script>
