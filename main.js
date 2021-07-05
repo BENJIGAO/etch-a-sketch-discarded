@@ -6,8 +6,9 @@ makeGridResponsive();
 
 function monitorMouseStatus() {
     const body = document.body;
-    body.addEventListener('mousedown', () => isMouseDown++)
-    body.addEventListener('mouseup', () => isMouseDown--)
+    body.addEventListener('mousedown', () => isMouseDown++, {capture: true});
+    body.addEventListener('mouseup', () => isMouseDown--);
+    
 }
 
 function createGrid(sideLength) {
@@ -31,7 +32,8 @@ function addBlack(e) {
 function makeGridResponsive() {
     const gridSquares = document.querySelectorAll('.grid-square');
     gridSquares.forEach((gridSquare) => {
-        gridSquare.addEventListener('mousemove', addBlack);
+        gridSquare.addEventListener('mouseenter', addBlack);
+        gridSquare.addEventListener('mousedown', addBlack, {capture: true});
     })
 }
 
