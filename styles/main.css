@@ -5,14 +5,17 @@ body {
 #main-container {
     display: flex;
     justify-content: center;
+    
+    
 }
 
 #grid-container {
     height: 800px;
     width: 800px;
     display: grid;
+    border: thick solid black;
   
 }
 .grid-square {
-
+    border: thin solid lightgray;
 }
