@@ -31,7 +31,7 @@ function addBlack(e) {
 function makeGridResponsive() {
     const gridSquares = document.querySelectorAll('.grid-square');
     gridSquares.forEach((gridSquare) => {
-        gridSquare.addEventListener('mouseenter', addBlack);
+        gridSquare.addEventListener('mousemove', addBlack);
     })
 }
 
