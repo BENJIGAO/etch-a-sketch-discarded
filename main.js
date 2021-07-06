@@ -4,7 +4,7 @@ monitorMouseStatus();
 
 createGrid(10);
 
-manageGridDisplay();
+manageGridSizeDisplay();
 
 changeGridSize();
 
@@ -21,7 +21,6 @@ function updateGrid(e) {
     clearDivs();
     createGrid(e.target.value);
     makeGridResponsive();
-
 }
 
 function clearDivs() {
@@ -30,7 +29,8 @@ function clearDivs() {
         gridContainer.removeChild(gridContainer.firstChild);
     }
 }
-function manageGridDisplay() {
+
+function manageGridSizeDisplay() {
     const display = document.getElementById('grid-size-display');
     const slider = document.getElementById('grid-size-slider');
     display.textContent = `${slider.value}`
@@ -47,24 +47,33 @@ function activateBtns() {
     clearBtn.addEventListener('click', clearGrid);
     const blackBtn = document.getElementById('black-btn');
     const rainbowBtn = document.getElementById('rainbow-btn');
-    blackBtn.addEventListener('click', initiateBlack.bind(blackBtn, rainbowBtn));
+    blackBtn.addEventListener('click', initiateColor);
+    rainbowBtn.addEventListener('click', initiateColor);
+}
+
+function initiateColor() {
+    const unwantedColor = document.querySelector('.selected');
+    unwantedColor.classList.remove('selected');
+    let tmpstring = `add${unwantedColor.id.slice(0, 1).toUpperCase() + unwantedColor.id.slice(1, -4)}`;
+    let unwantedFunction = window[tmpstring];
+    this.classList.add('selected');
+    tmpstring = `add${this.id.slice(0, 1).toUpperCase() + this.id.slice(1, -4)}`;
+    let wantedFunction = window[tmpstring];
+    const gridSquares = document.querySelectorAll('.grid-square');
+    gridSquares.forEach((gridSquare) => {
+        gridSquare.removeEventListener('mouseenter', unwantedFunction);
+        gridSquare.removeEventListener('mousedown', unwantedFunction, {capture: true});
+        gridSquare.addEventListener('mouseenter', wantedFunction);
+        gridSquare.addEventListener('mousedown', wantedFunction, {capture: true});
+    }) 
     
-    rainbowBtn.addEventListener('click', initiateRainbow);
-}
-
-function initiateBlack(rainbowBtn) {
-    console.log(this);
-    console.log(rainbowBtn);
-}
-
-function initiateRainbow() {
-    return;
+    
 }
 
 function clearGrid() {
     const gridSquares = document.querySelectorAll('.grid-square');
     gridSquares.forEach((gridSquare) => {
-        gridSquare.classList.remove('black');
+        gridSquare.className = 'grid-square';
     })
 }
 
@@ -95,6 +104,12 @@ function makeGridResponsive() {
 
 function addBlack(e) {
     if (isMouseDown) {
-        e.target.classList.add('black');
+        e.target.className = 'grid-square black';
+    }
+}
+
+function addRainbow(e) {
+    if (isMouseDown) {
+        e.target.className = 'grid-square rainbow';
     }
 }
