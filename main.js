@@ -1,13 +1,49 @@
 let isMouseDown = 0;
 
 monitorMouseStatus();
+
 createGrid(10);
+
+manageGridDisplay();
+
+changeGridSize();
+
 makeGridResponsive();
 activateBtns();
 
+function changeGridSize() {
+    const slider = document.getElementById('grid-size-slider');
+    slider.addEventListener('change', updateGrid)
+}
+
+function updateGrid(e) {
+    clearDivs();
+    createGrid(e.target.value);
+}
+
+function clearDivs() {
+    const gridContainer = document.querySelectorAll('.grid-square');
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
+}
+function manageGridDisplay() {
+    const display = document.getElementById('grid-size-display');
+    const slider = document.getElementById('grid-size-slider');
+    display.textContent = `${slider.value}`
+    slider.addEventListener('input', updateDisplay);
+}
+
+function updateDisplay(e) {
+    const display = document.getElementById('grid-size-display');
+    display.textContent = `${e.target.value}`;
+}
+
+
+
 function activateBtns() {
     const clearBtn = document.getElementById('clear-btn');
-    clearBtn.addEventListener('click', clearGrid)
+    clearBtn.addEventListener('click', clearGrid);
 }
 
 function clearGrid() {
