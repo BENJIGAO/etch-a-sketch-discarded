@@ -9,6 +9,7 @@ manageGridDisplay();
 changeGridSize();
 
 makeGridResponsive();
+
 activateBtns();
 
 function changeGridSize() {
@@ -41,11 +42,23 @@ function updateDisplay(e) {
     display.textContent = `${e.target.value}`;
 }
 
-
-
 function activateBtns() {
     const clearBtn = document.getElementById('clear-btn');
     clearBtn.addEventListener('click', clearGrid);
+    const blackBtn = document.getElementById('black-btn');
+    const rainbowBtn = document.getElementById('rainbow-btn');
+    blackBtn.addEventListener('click', initiateBlack.bind(blackBtn, rainbowBtn));
+    
+    rainbowBtn.addEventListener('click', initiateRainbow);
+}
+
+function initiateBlack(rainbowBtn) {
+    console.log(this);
+    console.log(rainbowBtn);
+}
+
+function initiateRainbow() {
+    return;
 }
 
 function clearGrid() {
