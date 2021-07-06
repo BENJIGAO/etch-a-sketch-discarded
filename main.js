@@ -95,11 +95,14 @@ function createGrid(sideLength) {
     }
 }
 
-function makeGridResponsive() {
+function makeGridResponsive(isFirstTime) {
     const gridSquares = document.querySelectorAll('.grid-square');
+    const tmpRef = document.querySelector('.selected')
+    const callback = isFirstTime ? addBlack : 
+    window[`add${tmpRef.id.slice(0, 1).toUpperCase() + tmpRef.id.slice(1, -4)}`]
     gridSquares.forEach((gridSquare) => {
-        gridSquare.addEventListener('mouseenter', addBlack);
-        gridSquare.addEventListener('mousedown', addBlack, {capture: true});
+        gridSquare.addEventListener('mouseenter', callback);
+        gridSquare.addEventListener('mousedown', callback, {capture: true});
     })
 }
 
