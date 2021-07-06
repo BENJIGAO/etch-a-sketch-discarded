@@ -18,6 +18,7 @@ function changeGridSize() {
 }
 
 function updateGrid(e) {
+    // When grid updates, colour always reverts back to black
     clearDivs();
     createGrid(e.target.value);
     makeGridResponsive();
