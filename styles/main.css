@@ -38,11 +38,10 @@ h1 {
     height: 30px;
 }
 
-
-
 .selected {
     border: 3px solid lightgray;
 }
+
 #slider-container {
     display: flex;
     flex-direction: column;
