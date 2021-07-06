@@ -19,10 +19,12 @@ function changeGridSize() {
 function updateGrid(e) {
     clearDivs();
     createGrid(e.target.value);
+    makeGridResponsive();
+
 }
 
 function clearDivs() {
-    const gridContainer = document.querySelectorAll('.grid-square');
+    const gridContainer = document.getElementById('grid-container');
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.firstChild);
     }
@@ -83,5 +85,3 @@ function addBlack(e) {
         e.target.classList.add('black');
     }
 }
-
-
