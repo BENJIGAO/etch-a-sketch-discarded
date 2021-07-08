@@ -28,6 +28,10 @@ h1 {
     justify-content: space-evenly;
 }
 
+#editing-tools {
+    display: flex;
+    flex-direction: column;
+}
 #clear-btn {
     width: 100px;
     height: 40px;
@@ -42,7 +46,7 @@ h1 {
     border: 3px solid lightgray;
 }
 
-#slider-container {
+#grid-size-changer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,6 +72,3 @@ p {
 
 }
 
-.rainbow {
-    background-color: purple;
-}

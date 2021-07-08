@@ -18,7 +18,6 @@ function changeGridSize() {
 }
 
 function updateGrid(e) {
-    // When grid updates, colour always reverts back to black
     clearDivs();
     createGrid(e.target.value);
     makeGridResponsive();
@@ -67,14 +66,13 @@ function initiateColor() {
         gridSquare.addEventListener('mouseenter', wantedFunction);
         gridSquare.addEventListener('mousedown', wantedFunction, {capture: true});
     }) 
-    
-    
 }
 
 function clearGrid() {
     const gridSquares = document.querySelectorAll('.grid-square');
     gridSquares.forEach((gridSquare) => {
         gridSquare.className = 'grid-square';
+        gridSquare.style.backgroundColor = '';
     })
 }
 
@@ -98,8 +96,7 @@ function createGrid(sideLength) {
 function makeGridResponsive(isFirstTime) {
     const gridSquares = document.querySelectorAll('.grid-square');
     const tmpRef = document.querySelector('.selected')
-    const callback = isFirstTime ? addBlack : 
-    window[`add${tmpRef.id.slice(0, 1).toUpperCase() + tmpRef.id.slice(1, -4)}`]
+    const callback = window[`add${tmpRef.id.slice(0, 1).toUpperCase() + tmpRef.id.slice(1, -4)}`];
     gridSquares.forEach((gridSquare) => {
         gridSquare.addEventListener('mouseenter', callback);
         gridSquare.addEventListener('mousedown', callback, {capture: true});
@@ -108,12 +105,13 @@ function makeGridResponsive(isFirstTime) {
 
 function addBlack(e) {
     if (isMouseDown) {
+        e.target.style.backgroundColor = '';
         e.target.className = 'grid-square black';
     }
 }
 
 function addRainbow(e) {
     if (isMouseDown) {
-        e.target.className = 'grid-square rainbow';
+        e.target.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
     }
 }
