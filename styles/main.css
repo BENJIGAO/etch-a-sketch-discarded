@@ -32,9 +32,14 @@ h1 {
     display: flex;
     flex-direction: column;
 }
+
 #clear-btn {
     width: 100px;
     height: 40px;
+}
+
+#colour-options {
+    display: flex;
 }
 
 #black-btn, #rainbow-btn {
