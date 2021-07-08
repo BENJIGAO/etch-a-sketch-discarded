@@ -42,7 +42,12 @@ h1 {
     display: flex;
 }
 
-#black-btn, #rainbow-btn {
+#col-1, #col-2 {
+    display: flex;
+    flex-direction: column;
+}
+
+#black-btn, #blue-btn, #green-btn, #magenta-btn, #rainbow-btn, #red-btn, #yellow-btn, #cyan-btn {
     width: 80px;
     height: 30px;
 }
@@ -74,6 +79,29 @@ p {
 
 .black {
     background-color: black;
+}
 
+.blue {
+    background-color: blue;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.magenta {
+    background-color: magenta;
+}
+
+.black {
+    background-color: black;
 }
 

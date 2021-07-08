@@ -47,8 +47,10 @@ function activateBtns() {
     clearBtn.addEventListener('click', clearGrid);
     const blackBtn = document.getElementById('black-btn');
     const rainbowBtn = document.getElementById('rainbow-btn');
+    const blueBtn = document.getElementById('blue-btn');
     blackBtn.addEventListener('click', initiateColor);
     rainbowBtn.addEventListener('click', initiateColor);
+    blueBtn.addEventListener('click', initiateColor);
 }
 
 function initiateColor() {
@@ -59,6 +61,7 @@ function initiateColor() {
     this.classList.add('selected');
     tmpstring = `add${this.id.slice(0, 1).toUpperCase() + this.id.slice(1, -4)}`;
     let wantedFunction = window[tmpstring];
+    console.log(wantedFunction);
     const gridSquares = document.querySelectorAll('.grid-square');
     gridSquares.forEach((gridSquare) => {
         gridSquare.removeEventListener('mouseenter', unwantedFunction);
@@ -93,7 +96,7 @@ function createGrid(sideLength) {
     }
 }
 
-function makeGridResponsive(isFirstTime) {
+function makeGridResponsive() {
     const gridSquares = document.querySelectorAll('.grid-square');
     const tmpRef = document.querySelector('.selected')
     const callback = window[`add${tmpRef.id.slice(0, 1).toUpperCase() + tmpRef.id.slice(1, -4)}`];
@@ -115,3 +118,49 @@ function addRainbow(e) {
         e.target.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
     }
 }
+
+function addBlue(e) {
+    if (isMouseDown) {
+        e.target.style.backgroundColor = '';
+        e.target.className = 'grid-square blue';
+    }
+}
+
+function addRed(e) {
+    if (isMouseDown) {
+        e.target.style.backgroundColor = '';
+        e.target.className = 'grid-square red';
+    }
+}
+
+function addGreen(e) {
+    if (isMouseDown) {
+        e.target.style.backgroundColor = '';
+        e.target.className = 'grid-square green';
+    }
+}
+
+function addYellow(e) {
+    if (isMouseDown) {
+        e.target.style.backgroundColor = '';
+        e.target.className = 'grid-square yellow';
+    }
+}
+
+function addMagenta(e) {
+    if (isMouseDown) {
+        e.target.style.backgroundColor = '';
+        e.target.className = 'grid-square magenta';
+    }
+}
+
+function addCyan(e) {
+    if (isMouseDown) {
+        e.target.style.backgroundColor = '';
+        e.target.className = 'grid-square cyan';
+    }
+}
+
+
+
+
