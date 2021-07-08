@@ -45,18 +45,16 @@ function updateDisplay(e) {
 function activateBtns() {
     const clearBtn = document.getElementById('clear-btn');
     clearBtn.addEventListener('click', clearGrid);
-    const blackBtn = document.getElementById('black-btn');
-    const rainbowBtn = document.getElementById('rainbow-btn');
-    const blueBtn = document.getElementById('blue-btn');
-    blackBtn.addEventListener('click', initiateColor);
-    rainbowBtn.addEventListener('click', initiateColor);
-    blueBtn.addEventListener('click', initiateColor);
+    const toolBtns = document.querySelectorAll('.tool');
+    toolBtns.forEach((toolBtn) => {
+        toolBtn.addEventListener('click', initiateTool);
+    })
 }
 
-function initiateColor() {
-    const unwantedColor = document.querySelector('.selected');
-    unwantedColor.classList.remove('selected');
-    let tmpstring = `add${unwantedColor.id.slice(0, 1).toUpperCase() + unwantedColor.id.slice(1, -4)}`;
+function initiateTool() {
+    const unwantedTool = document.querySelector('.selected');
+    unwantedTool.classList.remove('selected');
+    let tmpstring = `add${unwantedTool.id.slice(0, 1).toUpperCase() + unwantedTool.id.slice(1, -4)}`;
     let unwantedFunction = window[tmpstring];
     this.classList.add('selected');
     tmpstring = `add${this.id.slice(0, 1).toUpperCase() + this.id.slice(1, -4)}`;
@@ -159,6 +157,14 @@ function addCyan(e) {
         e.target.style.backgroundColor = '';
         e.target.className = 'grid-square cyan';
     }
+}
+
+function addEraser(e) {
+    if (isMouseDown) {
+        e.target.style.backgroundColor = '';
+        e.target.className = 'grid-square';
+    }
+    
 }
 
 

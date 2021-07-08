@@ -31,6 +31,7 @@ h1 {
 #editing-tools {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 #clear-btn {
@@ -38,7 +39,7 @@ h1 {
     height: 40px;
 }
 
-#colour-options {
+#color-options {
     display: flex;
 }
 
@@ -47,7 +48,7 @@ h1 {
     flex-direction: column;
 }
 
-#black-btn, #blue-btn, #green-btn, #magenta-btn, #rainbow-btn, #red-btn, #yellow-btn, #cyan-btn {
+#eraser-btn, #black-btn, #blue-btn, #green-btn, #magenta-btn, #rainbow-btn, #red-btn, #yellow-btn, #cyan-btn {
     width: 80px;
     height: 30px;
 }
@@ -101,7 +102,9 @@ p {
     background-color: magenta;
 }
 
-.black {
-    background-color: black;
+.cyan {
+    background-color: cyan;
 }
+
+
 
