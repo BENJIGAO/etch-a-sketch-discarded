@@ -8,49 +8,59 @@
     <img id="background" src="images/background.png">
     <div id="main-container">
         <div id="toolbar-container">
-                <div id="editing-tools">
-                    <button id="clear-btn">
-                        <strong>Clear</strong>
+            <div id="editing-tools">
+                <button id="clear-btn">
+                    Clear
+                </button>
+                <button id="eraser-btn" class="tool"> <!--Separated from other tools to distinguish colors from editing tools-->
+                    Eraser
+                </button>
+            </div>
+            <div id="color-label">Colors:</div>
+            <div id="color-options">
+                <div id="col-1">
+                    <button id="black-btn" class="selected tool"> <!--Black selected first b/c it's a default color-->
+                        Black
                     </button>
-                    <button id="eraser-btn" class="tool">
-                        Eraser
+                    <button id="blue-btn" class="tool">
+                        Blue
+                    </button>
+                    <button id="green-btn" class="tool">
+                        Green
+                    </button>
+                    <button id="magenta-btn" class="tool">
+                        Magenta
                     </button>
                 </div>
-                <div id="colour-label">Colours:</div>
-                <div id="color-options">
-                    <div id="col-1">
-                        <button id="black-btn" class="selected tool">Black</button>
-                        <button id="blue-btn" class="tool">Blue</button>
-                        <button id="green-btn" class="tool">Green</button>
-                        <button id="magenta-btn" class="tool">Magenta</button>
-                    </div>
-                    <div id="col-2">
-                        <button id="rainbow-btn" class="tool">Rainbow</button>
-                        <button id="red-btn" class="tool">Red</button>
-                        <button id="yellow-btn" class="tool">Yellow</button>
-                        <button id="cyan-btn" class="tool">Cyan</button>
-                    </div>
+                <div id="col-2">
+                    <button id="rainbow-btn" class="tool">
+                        Rainbow
+                    </button>
+                    <button id="red-btn" class="tool">
+                        Red
+                    </button>
+                    <button id="yellow-btn" class="tool">
+                        Yellow
+                    </button>
+                    <button id="cyan-btn" class="tool">
+                        Cyan
+                    </button>
                 </div>
-                <div id="grid-size-changer">
-                    <label id="grid-size-container" for="grid-size-slider">
-                        Grid Size:<br>
-                        <p id="grid-size-display"></p>
-                    </label>
-                    <input type="range" min=10 max=99 value=10 id="grid-size-slider">
-                </div>
+            </div>
+            <div id="grid-size-changer">
+                <label id="grid-size-container" for="grid-size-slider">
+                    Grid Size:
+                    <br>
+                    <p id="grid-size-display"></p>
+                </label>
+                <input type="range" min=10 max=99 value=10 id="grid-size-slider">
+            </div>
         </div>
         <div id="title-grid-container">
             <img src="images/title.gif">
-            <div id="grid-container">
-            </div>
-        </div>
-            
-
-        </div>
-        <footer></footer>
-        
+            <div id="grid-container"></div>
+        </div>        
     </div>
-    
     <script src="scripts/main.js"></script>
 </body>
 </html>

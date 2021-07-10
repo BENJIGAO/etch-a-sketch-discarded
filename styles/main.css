@@ -2,16 +2,12 @@
     font-family: 'A Year Without Rain';
 }
 
-strong {
-    font-weight: bold;
-
-}
-
 body {
     height: 100vh;
 }
 
-button:hover {box-shadow: rgb(209 206 9) 0px 6px 20px 4px, rgb(209 206 9) 0px -6px 20px 4px;}
+button:hover, input:hover {box-shadow: rgb(209 206 9) 0px 6px 20px 4px, rgb(209 206 9) 0px -6px 20px 4px;}
+input:active {box-shadow: none}
 
 #background {
     position: fixed;
@@ -58,6 +54,7 @@ button:hover {box-shadow: rgb(209 206 9) 0px 6px 20px 4px, rgb(209 206 9) 0px -6
 
 #clear-btn {
     font-size: 30px;
+    font-weight: bold;
 }
 
 #eraser-btn {
