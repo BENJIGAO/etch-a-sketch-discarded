@@ -1,7 +1,11 @@
 @font-face {
 	font-family: 'A Year Without Rain';
-	src: url('font/AYearWithoutRain.ttf'); 
-	
+	src: url('../font/AYearWithoutRain.eot'); /* IE9 Compat Modes */
+	src: url('../font/AYearWithoutRain.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		 url('../font/AYearWithoutRain.woff2') format('font-woff2'), /* Super Modern Browsers */
+		 url('../font/AYearWithoutRain.woff') format('woff'), /* Pretty Modern Browsers */
+		 url('../font/AYearWithoutRain.ttf')  format('truetype'), /* Safari, Android, iOS */
+		 url('../font/AYearWithoutRain.svg#AYearWithoutRain') format('svg'); /* Legacy iOS */
 }
 
 html, body, div, span, applet, object, iframe,
@@ -21,7 +25,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	font: 'A Year Without Rain';
 	vertical-align: baseline;
 }
 
