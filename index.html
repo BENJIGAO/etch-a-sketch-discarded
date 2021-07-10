@@ -9,9 +9,14 @@
     <div id="main-container">
         <div id="toolbar-container">
                 <div id="editing-tools">
-                    <button id="clear-btn">Clear</button>
-                    <button id="eraser-btn" class="tool">Eraser</button>
+                    <button id="clear-btn">
+                        <strong>Clear</strong>
+                    </button>
+                    <button id="eraser-btn" class="tool">
+                        Eraser
+                    </button>
                 </div>
+                <div id="colour-label">Colours:</div>
                 <div id="color-options">
                     <div id="col-1">
                         <button id="black-btn" class="selected tool">Black</button>
@@ -27,8 +32,8 @@
                     </div>
                 </div>
                 <div id="grid-size-changer">
-                    <label for="grid-size-slider">
-                        Grid Size:
+                    <label id="grid-size-container" for="grid-size-slider">
+                        Grid Size:<br>
                         <p id="grid-size-display"></p>
                     </label>
                     <input type="range" min=10 max=99 value=10 id="grid-size-slider">

@@ -2,9 +2,16 @@
     font-family: 'A Year Without Rain';
 }
 
+strong {
+    font-weight: bold;
+
+}
+
 body {
     height: 100vh;
 }
+
+button:hover {box-shadow: rgb(209 206 9) 0px 6px 20px 4px, rgb(209 206 9) 0px -6px 20px 4px;}
 
 #background {
     position: fixed;
@@ -33,36 +40,80 @@ body {
     border: solid;
     margin-top: 4%;
     transform: translateX(-40px);
+    background-color: pink;
 }
 
 #editing-tools {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 40%;
+    justify-content: space-evenly;
+}
+
+#clear-btn, #eraser-btn {
+    width: 150px;
+    height: 60px;
 }
 
 #clear-btn {
-    width: 100px;
-    height: 40px;
-    font-family: 'A Year Without Rain';
+    font-size: 30px;
+}
+
+#eraser-btn {
+    font-size: 20px;
 }
 
 #color-options {
     display: flex;
+    justify-content: space-evenly;
+    width: 160px;
+    height: 35%;
 }
 
 #col-1, #col-2 {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    height: 150px;
 }
 
-#eraser-btn, #black-btn, #blue-btn, #green-btn, #magenta-btn, #rainbow-btn, #red-btn, #yellow-btn, #cyan-btn {
-    width: 80px;
-    height: 30px;
+#grid-size-changer {
+    height: 15%;
 }
+
+#grid-size-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+
+#grid-size-slider {
+    width: 160px;
+}
+
+#black-btn, #blue-btn, #green-btn, #magenta-btn, #rainbow-btn, #red-btn, #yellow-btn, #cyan-btn {
+    width: 75px;
+    height: 30px;
+    border: none;
+}
+
+#black-btn, #rainbow-btn {
+    color: white;
+}
+
+#black-btn {background-color: black}
+#blue-btn {background-color: blue}
+#green-btn {background-color: green}
+#magenta-btn {background-color: magenta}
+#rainbow-btn {background: linear-gradient(to top left, red, orange, rgb(190, 190, 0), green, blue, indigo, violet)}
+#red-btn {background-color: red}
+#yellow-btn {background-color: yellow}
+#cyan-btn {background-color: cyan}
 
 .selected {
-    border: 3px solid lightgray;
+    border: 3.5px solid lightgray !important;
 }
 
 #grid-size-changer {
@@ -120,6 +171,3 @@ p {
 .cyan {
     background-color: cyan;
 }
-
-
-
