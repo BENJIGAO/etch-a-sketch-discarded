@@ -27,9 +27,9 @@ input:active {box-shadow: none}
 
 #main-container {
     justify-content: center;
-    height: inherit;
+    height: 40%;
+    width: 100vw;
     margin-left: -10%;
-    transform: scale(1.1);
 }
 
 #background {
