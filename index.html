@@ -5,10 +5,9 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body ondragstart="return false;"> <!--Disables drag-->
+    <img id="background" src="images/background.png">
     <div id="main-container">
-        <img src="images/title.gif">
-        <div id="main-content">
-            <div id="toolbar">
+        <div id="toolbar-container">
                 <div id="editing-tools">
                     <button id="clear-btn">Clear</button>
                     <button id="eraser-btn" class="tool">Eraser</button>
@@ -34,10 +33,13 @@
                     </label>
                     <input type="range" min=10 max=99 value=10 id="grid-size-slider">
                 </div>
-                
-            </div>
+        </div>
+        <div id="title-grid-container">
+            <img src="images/title.gif">
             <div id="grid-container">
             </div>
+        </div>
+            
 
         </div>
         <footer></footer>
