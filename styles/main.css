@@ -113,7 +113,7 @@ button:hover {box-shadow: rgb(209 206 9) 0px 6px 20px 4px, rgb(209 206 9) 0px -6
 #cyan-btn {background-color: cyan}
 
 .selected {
-    border: 3.5px solid lightgray !important;
+    border: 3.5px solid darkgray !important;
 }
 
 #grid-size-changer {
