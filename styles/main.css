@@ -9,12 +9,16 @@ body {
 button:hover, input:hover {box-shadow: rgb(209 206 9) 0px 6px 20px 4px, rgb(209 206 9) 0px -6px 20px 4px;}
 input:active {box-shadow: none}
 
+#main-container, #toolbar-container, #editing-tools, #color-options, #col-1, #col-2, #grid-size-container, #grid-size-changer {
+    
+}
+
 #background {
     position: fixed;
     height: inherit;
     width: 100vw;
     z-index: -1;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 #main-container {
@@ -29,27 +33,27 @@ input:active {box-shadow: none}
 #toolbar-container {
     display: flex;
     flex-direction: column;
-    height: 510px;
-    width: 200px;
     justify-content: space-evenly;
     align-items: center;
+    height: 510px;
+    width: 200px;
+    background-color: pink;
     border: solid;
     margin-top: 4%;
     transform: translateX(-40px);
-    background-color: pink;
 }
 
 #editing-tools {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     height: 40%;
-    justify-content: space-evenly;
 }
 
 #clear-btn, #eraser-btn {
-    width: 150px;
     height: 60px;
+    width: 150px;
 }
 
 #clear-btn {
@@ -64,8 +68,8 @@ input:active {box-shadow: none}
 #color-options {
     display: flex;
     justify-content: space-evenly;
-    width: 160px;
     height: 35%;
+    width: 160px;
 }
 
 #col-1, #col-2 {
@@ -76,6 +80,9 @@ input:active {box-shadow: none}
 }
 
 #grid-size-changer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 15%;
 }
 
@@ -91,12 +98,12 @@ input:active {box-shadow: none}
 }
 
 #black-btn, #blue-btn, #green-btn, #magenta-btn, #rainbow-btn, #red-btn, #yellow-btn, #cyan-btn {
-    width: 75px;
     height: 30px;
+    width: 75px;
     border: none;
 }
 
-#black-btn, #rainbow-btn {
+#black-btn, #rainbow-btn, #blue-btn {
     color: white;
 }
 
@@ -113,21 +120,12 @@ input:active {box-shadow: none}
     border: 3.5px solid darkgray !important;
 }
 
-#grid-size-changer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-p {
-    display: inline;
-}
-
 #title-grid-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 #grid-container {
     height: 600px;
     width: 600px;
@@ -137,34 +135,15 @@ p {
     margin-top: 20px;
   
 }
+
 .grid-square {
     border: thin solid lightgray;
 }
 
-.black {
-    background-color: black;
-}
-
-.blue {
-    background-color: blue;
-}
-
-.red {
-    background-color: red;
-}
-
-.green {
-    background-color: green;
-}
-
-.yellow {
-    background-color: yellow;
-}
-
-.magenta {
-    background-color: magenta;
-}
-
-.cyan {
-    background-color: cyan;
-}
+.black {background-color: black}
+.blue {background-color: blue}
+.red {background-color: red}
+.green {background-color: green}
+.yellow {background-color: yellow}
+.magenta {background-color: magenta}
+.cyan {background-color: cyan}
