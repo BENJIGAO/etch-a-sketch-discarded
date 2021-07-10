@@ -12,11 +12,44 @@ makeGridResponsive();
 
 activateBtns();
 
+/* First Major Function */
+function monitorMouseStatus() {
+    const body = document.body;
+    body.addEventListener('mousedown', () => isMouseDown++, {capture: true});
+    body.addEventListener('mouseup', () => isMouseDown--);
+}
+
+/* Second Major Function */
+function createGrid(sideLength) {
+    const gridContainer = document.getElementById('grid-container');
+    let sideMeasure = '1fr '.repeat(sideLength);
+    gridContainer.style.cssText = `grid-template-columns: ${sideMeasure}; grid-template-rows: ${sideMeasure};`;
+    for (let i = 0; i < sideLength**2; i++) {
+        const gridSquare = document.createElement('div');
+        gridSquare.classList.add('grid-square');
+        gridContainer.appendChild(gridSquare);
+    }
+}
+
+/* Third Major Function */
+function manageGridSizeDisplay() {
+    const display = document.getElementById('grid-size-display');
+    const slider = document.getElementById('grid-size-slider');
+    display.textContent = `${slider.value}`
+    slider.addEventListener('input', updateDisplay);
+}
+
+function updateDisplay(e) {
+    const display = document.getElementById('grid-size-display');
+    display.textContent = `${e.target.value}`;
+}
+
 function changeGridSize() {
     const slider = document.getElementById('grid-size-slider');
     slider.addEventListener('change', updateGrid)
 }
 
+/* Fourth Major Function */
 function updateGrid(e) {
     clearDivs();
     createGrid(e.target.value);
@@ -30,24 +63,34 @@ function clearDivs() {
     }
 }
 
-function manageGridSizeDisplay() {
-    const display = document.getElementById('grid-size-display');
-    const slider = document.getElementById('grid-size-slider');
-    display.textContent = `${slider.value}`
-    slider.addEventListener('input', updateDisplay);
+/* Fifth Major Function */
+function makeGridResponsive() {
+    const gridSquares = document.querySelectorAll('.grid-square');
+    const tmpRef = document.querySelector('.selected')
+    const callback = window[`add${tmpRef.id.slice(0, 1).toUpperCase() + tmpRef.id.slice(1, -4)}`];
+    gridSquares.forEach((gridSquare) => {
+        gridSquare.addEventListener('mouseenter', callback);
+        gridSquare.addEventListener('mousedown', callback, {capture: true});
+    })
 }
 
-function updateDisplay(e) {
-    const display = document.getElementById('grid-size-display');
-    display.textContent = `${e.target.value}`;
-}
-
+/* Sixth Major Function */
 function activateBtns() {
     const clearBtn = document.getElementById('clear-btn');
     clearBtn.addEventListener('click', clearGrid);
+    
+    /* For color and eraser button(s) */
     const toolBtns = document.querySelectorAll('.tool');
     toolBtns.forEach((toolBtn) => {
         toolBtn.addEventListener('click', initiateTool);
+    })
+}
+
+function clearGrid() {
+    const gridSquares = document.querySelectorAll('.grid-square');
+    gridSquares.forEach((gridSquare) => {
+        gridSquare.className = 'grid-square';
+        gridSquare.style.backgroundColor = '';
     })
 }
 
@@ -67,41 +110,6 @@ function initiateTool() {
         gridSquare.addEventListener('mouseenter', wantedFunction);
         gridSquare.addEventListener('mousedown', wantedFunction, {capture: true});
     }) 
-}
-
-function clearGrid() {
-    const gridSquares = document.querySelectorAll('.grid-square');
-    gridSquares.forEach((gridSquare) => {
-        gridSquare.className = 'grid-square';
-        gridSquare.style.backgroundColor = '';
-    })
-}
-
-function monitorMouseStatus() {
-    const body = document.body;
-    body.addEventListener('mousedown', () => isMouseDown++, {capture: true});
-    body.addEventListener('mouseup', () => isMouseDown--);
-}
-
-function createGrid(sideLength) {
-    const gridContainer = document.getElementById('grid-container');
-    let sideMeasure = '1fr '.repeat(sideLength);
-    gridContainer.style.cssText = `grid-template-columns: ${sideMeasure}; grid-template-rows: ${sideMeasure};`;
-    for (let i = 0; i < sideLength**2; i++) {
-        const gridSquare = document.createElement('div');
-        gridSquare.classList.add('grid-square');
-        gridContainer.appendChild(gridSquare);
-    }
-}
-
-function makeGridResponsive() {
-    const gridSquares = document.querySelectorAll('.grid-square');
-    const tmpRef = document.querySelector('.selected')
-    const callback = window[`add${tmpRef.id.slice(0, 1).toUpperCase() + tmpRef.id.slice(1, -4)}`];
-    gridSquares.forEach((gridSquare) => {
-        gridSquare.addEventListener('mouseenter', callback);
-        gridSquare.addEventListener('mousedown', callback, {capture: true});
-    })
 }
 
 function addBlack(e) {
