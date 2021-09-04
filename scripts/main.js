@@ -25,7 +25,7 @@ function createGrid(sideLength) {
     const gridContainer = document.getElementById('grid-container');
     let sideMeasure = '1fr '.repeat(sideLength);
     gridContainer.style.cssText = `grid-template-columns: ${sideMeasure}; grid-template-rows: ${sideMeasure};`;
-    /* grid is square (multiply by 2) */
+    /* grid is square (square by 2) */
     for (let i = 0; i < sideLength**2; i++) {
         const gridSquare = document.createElement('div');
         gridSquare.classList.add('grid-square');
